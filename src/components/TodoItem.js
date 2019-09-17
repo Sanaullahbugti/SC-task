@@ -2,14 +2,17 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-const TodoItem = ({ text, completed, onComplete }) => (
+const TodoItem = ({ text, completed, onComplete }) =>
+{
+console.log(completed);
+  return (
   <Wrapper >
     <code onClick={onComplete}>
       [{completed ? 'x' : '  '}] <Text completed={completed}>{text}</Text>
     </code>
   </Wrapper>
 )
-
+}
 const Wrapper = styled.p`
   font-size: 24px;
   cursor: pointer;

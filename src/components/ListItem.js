@@ -36,8 +36,8 @@ class ListItem extends React.Component {
     }
     render() {
         const { item, show, onShow, ...rest } = this.props
-        const { todos } = this.state;
-        console.log(todos)
+        const { todos } = this.props;
+        console.log("state",todos)
         console.log(this.props.todos)
         return (
             <Wrapper >
