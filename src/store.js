@@ -122,10 +122,8 @@ class TodosContainer extends Container {
 				text,
 				id: state.lists[listId].list.length+1
 			}
-			console.log("working",state.lists[listId])
 			let lists = [...state.lists]
 			let todo = [...lists[listId].list,item]
-			// todo[todoId - 1] = { ...todo[todoId - 1], completed }
 			lists[listId] = { ...lists[listId], list: todo }
 			return { lists }
 		})

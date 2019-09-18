@@ -48,8 +48,8 @@ const Select = styled.select`
   border-radius: 3px;
   padding: 10px 18px;
   font-size: 20px;
-  height: 40px;
-  min-width: 300px;
+  height: 50px;
+  min-width: 338px;
   margin-bottom: 16px;
 
   &::placeholder {

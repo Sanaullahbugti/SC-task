@@ -8,36 +8,19 @@ class ListItem extends React.Component {
     state = {
         list: [],
         todos: this.props.todos,
+        type: "all"
 
     }
     filterTodos = (type) => {
-        console.log(type)
-        if (type == "completed") {
-            console.log("complete")
-            this.setState({
-                todos: this.props.todos.filter(rec => rec.completed)
-            })
-
-        } else if (type == "active") {
-            console.log("active")
-            this.setState({
-                todos: this.props.todos.filter(rec => !rec.completed)
-            })
-
-        } else {
-            console.log(type);
-            this.setState(() => {
-                console.log("state", this.props.todos);
-                return { todos: this.props.todos }
-            })
-
-        }
+        this.setState({
+            type,
+        })
 
     }
     render() {
-        const { item, show, onShow, ...rest } = this.props
-        const { todos } = this.props;
-        console.log("state",todos)
+        const { item, show, onShow, todos, ...rest } = this.props
+        const { type } = this.state;
+        console.log("state", todos)
         console.log(this.props.todos)
         return (
             <Wrapper >
@@ -45,7 +28,7 @@ class ListItem extends React.Component {
                     [{show ? "-" : "+"}]<Text >{item}</Text>
                 </code>
                 {show && <Wrapper><AddTodo {...rest} onChange={this.filterTodos} />
-                    {todos.length && <TodoList items={todos} {...rest} />}</Wrapper>}
+                    {<TodoList items={todos} {...rest} type={type} />}</Wrapper>}
             </Wrapper>
         )
     }
